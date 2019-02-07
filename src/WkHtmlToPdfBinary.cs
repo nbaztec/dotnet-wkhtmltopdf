@@ -14,7 +14,7 @@ namespace WkHtmlToPdf
             {
                 process.StartInfo = new ProcessStartInfo
                 {
-                    FileName = "/usr/bin/wkhtmltopdf",
+                    FileName = "wkhtmltopdf",
                     Arguments = "- -",
                     CreateNoWindow = true,
                     RedirectStandardError = true,
