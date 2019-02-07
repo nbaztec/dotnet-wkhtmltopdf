@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>WkHtmlToPdf</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>nbaztec</Authors>
+        <Description>Generate PDF via WkHtmlToPdf</Description>
+    </PropertyGroup>
+
+</Project>

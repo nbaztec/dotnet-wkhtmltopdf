@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WkHtmlToPdf", "src\WkHtmlToPdf.csproj", "{8037D5EF-9288-45EB-9993-B84E013C0BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WkHtmlToPdfTests", "tests\WkHtmlToPdfTests.csproj", "{89CF7F00-B651-4241-BD71-B3DDC03116B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8037D5EF-9288-45EB-9993-B84E013C0BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8037D5EF-9288-45EB-9993-B84E013C0BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8037D5EF-9288-45EB-9993-B84E013C0BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8037D5EF-9288-45EB-9993-B84E013C0BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89CF7F00-B651-4241-BD71-B3DDC03116B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89CF7F00-B651-4241-BD71-B3DDC03116B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89CF7F00-B651-4241-BD71-B3DDC03116B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89CF7F00-B651-4241-BD71-B3DDC03116B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
