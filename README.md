@@ -14,3 +14,5 @@ catch (Exception e)
 
 File.WriteAllBytes("test.pdf", bytes);
 ```
+
+Requires [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) binary in the system PATH.

@@ -37,7 +37,7 @@ namespace WkHtmlToPdf
                     await process.StandardOutput.BaseStream.CopyToAsync(stdout);
                     await process.StandardError.BaseStream.CopyToAsync(stderr);
                 
-                    var success = process.WaitForExit(timeout.Milliseconds);
+                    var success = process.WaitForExit((int)timeout.TotalMilliseconds);
                 
                     return new ExecutionResult
                     {
