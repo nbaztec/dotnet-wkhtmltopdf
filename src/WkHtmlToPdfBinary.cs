@@ -8,7 +8,7 @@ namespace WkHtmlToPdf
 {
     public class WkHtmlToPdfBinary : IWkHtmlToPdfBinary
     {
-        public async Task<ExecutionResult> Execute(string stdin, TimeSpan timeout)
+        public async Task<ExecutionResult> Execute(byte[] stdin, TimeSpan timeout)
         {
             using (var process = new Process())
             {
@@ -22,13 +22,13 @@ namespace WkHtmlToPdf
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
                 };
-               
+
                 if (!process.Start())
                 {
                     return new ExecutionResult { Success = false };
                 }
-                
-                process.StandardInput.Write(stdin);
+
+                process.StandardInput.BaseStream.Write(stdin, 0, stdin.Length);
                 process.StandardInput.Close();
 
                 using (var stdout = new MemoryStream())
@@ -36,9 +36,9 @@ namespace WkHtmlToPdf
                 {
                     await process.StandardOutput.BaseStream.CopyToAsync(stdout);
                     await process.StandardError.BaseStream.CopyToAsync(stderr);
-                
+
                     var success = process.WaitForExit((int)timeout.TotalMilliseconds);
-                
+
                     return new ExecutionResult
                     {
                         ExitCode = process.ExitCode,

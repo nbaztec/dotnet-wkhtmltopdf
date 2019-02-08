@@ -11,26 +11,26 @@ namespace WkHtmlToPdf
 
         public static PdfGenerator MakeDefault()
         {
-            return new PdfGenerator(new WkHtmlToPdfBinary());            
+            return new PdfGenerator(new WkHtmlToPdfBinary());
         }
-        
+
         public PdfGenerator(IWkHtmlToPdfBinary pdfBinary)
         {
             _pdfBinary = pdfBinary;
         }
-        
-        public Task<byte[]> Generate(string data)
+
+        public Task<byte[]> Generate(byte[] data)
         {
             return Generate(data, TimeSpan.FromSeconds(30));
         }
-        
-        public async Task<byte[]> Generate(string data, TimeSpan timeout)
+
+        public async Task<byte[]> Generate(byte[] data, TimeSpan timeout)
         {
-            if (string.IsNullOrEmpty(data))
+            if (data == null || data.Length == 0)
             {
                 throw new PdfConvertException("input string empty");
             }
-            
+
             var result = await _pdfBinary.Execute(data, timeout);
 
             if (!result.Success)
@@ -40,14 +40,14 @@ namespace WkHtmlToPdf
 
             if (result.Stderr.Length != 0 && result.ExitCode != 0)
             {
-                throw new PdfConvertException($"{Encoding.UTF8.GetString(result.Stderr)} ; exit code {result.ExitCode}");                
+                throw new PdfConvertException($"{Encoding.UTF8.GetString(result.Stderr)} ; exit code {result.ExitCode}");
             }
-            
+
             if (result.Stdout.Length == 0)
             {
-                throw new PdfConvertException("output empty");                
+                throw new PdfConvertException("output empty");
             }
-            
+
             return result.Stdout;
         }
     }
