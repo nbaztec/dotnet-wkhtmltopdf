@@ -28,7 +28,7 @@ namespace WkHtmlToPdf
                     return new ExecutionResult { Success = false };
                 }
 
-                process.StandardInput.BaseStream.Write(stdin, 0, stdin.Length);
+                await process.StandardInput.BaseStream.WriteAsync(stdin, 0, stdin.Length);
                 process.StandardInput.Close();
 
                 using (var stdout = new MemoryStream())
