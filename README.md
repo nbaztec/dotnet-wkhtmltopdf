@@ -5,7 +5,7 @@ var pdf = PdfGenerator.MakeDefault();
 
 try
 {
-  var bytes = await pdf.Generate(File.ReadAllText("test.html"));
+  var bytes = await pdf.Generate(File.ReadAllBytes("test.html"));
 }
 catch (Exception e)
 {
